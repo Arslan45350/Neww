@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" android:installLocation="internalOnly" android:versionCode="1" android:versionName="1.0" package="com.factsecrety" platformBuildVersionCode="30" platformBuildVersionName="11">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="32" />
+	<queries>
+		<intent>
+			<action android:name="android.intent.action.VIEW" />
+			<category android:name="android.intent.category.BROWSABLE" />
+			<data android:scheme="http" />
+		</intent>
+		<intent>
+			<action android:name="android.intent.action.VIEW" />
+			<category android:name="android.intent.category.BROWSABLE" />
+			<data android:scheme="https" />
+		</intent>
+	</queries>
+	<uses-feature android:glEsVersion="0x30002" android:required="true" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="com.android.vending.BILLING" />
+	<supports-gl-texture android:name="GL_KHR_texture_compression_astc_ldr" />
+	<application android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:hardwareAccelerated="true" android:hasCode="true" android:icon="@drawable/icon" android:label="@string/app_name" android:name="com.epicgames.unreal.GameApplication">
+		<activity android:debuggable="false" android:exported="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.epicgames.unreal.SplashActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/UnrealSplashTheme">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:debuggable="false" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.epicgames.unreal.GameActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/UnrealSplashTheme">
+			<meta-data android:name="android.app.lib_name" android:value="Unreal" />
+		</activity>
+		<activity android:configChanges="density|keyboard|keyboardHidden|mcc|mnc|orientation|screenSize|uiMode" android:name="com.factsecrety.DownloaderActivity" android:screenOrientation="portrait" android:theme="@style/UnrealSplashTheme" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.EngineVersion" android:value="5.0.3" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.EngineBranch" android:value="++UE5+Release-5.0" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.ProjectVersion" android:value="1.0.0.0" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.DepthBufferPreference" android:value="0" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bPackageDataInsideApk" android:value="true" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bVerifyOBBOnStartUp" android:value="true" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bShouldHideUI" android:value="true" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.ProjectName" android:value="tiktok" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.AppType" android:value="" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bHasOBBFiles" android:value="true" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.BuildConfiguration" android:value="Development" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.CookedFlavors" android:value="ASTC" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bValidateTextureFormats" android:value="true" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bUseExternalFilesDir" android:value="true" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bPublicLogFiles" android:value="false" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bUseDisplayCutout" android:value="false" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bAllowIMU" android:value="false" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.bSupportsVulkan" android:value="false" />
+		<meta-data android:name="com.epicgames.unreal.GameActivity.StartupPermissions" android:value="android.permission.WRITE_EXTERNAL_STORAGE" />
+		<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+		<activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" />
+		<service android:name="com.factsecrety.OBBDownloaderService" />
+		<receiver android:name="com.factsecrety.AlarmReceiver" />
+		<receiver android:name="com.epicgames.unreal.LocalNotificationReceiver" />
+		<receiver android:exported="true" android:name="com.epicgames.unreal.MulticastBroadcastReceiver">
+			<intent-filter>
+				<action android:name="com.android.vending.INSTALL_REFERRER" />
+			</intent-filter>
+		</receiver>
+		<meta-data android:name="android.max_aspect" android:value="2.1" />
+		<receiver android:exported="true" android:name="com.epicgames.unreal.RemoteFileManagerReceiver">
+			<intent-filter>
+				<action android:name="com.epicgames.unreal.RemoteFileManager.intent.COMMAND" />
+			</intent-filter>
+		</receiver>
+		<meta-data android:name="com.epicgames.unreal.RemoteFileManager.bAllowNetworkConnection" android:value="true" />
+		<activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+		<service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+		<meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.0" />
+		<activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+		<activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+		<provider android:authorities="com.factsecrety.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer" />
+		<meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base" />
+		<meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0" />
+	</application>
+</manifest>
